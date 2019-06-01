@@ -29,15 +29,151 @@
 		<div class="slides">
 			<section>
 				<h1>Serverless Computing</h1>
-				<li>AWS Lambda</li>
-				<li>Google Cloud Functions</li>
-				<li>Azure Functions</li>
+				<ul class="fragment" data-fragment-index="2" style="font-size: 1.4em">
+					<li>AWS Lambda</li>
+					<li>Google Cloud Functions</li>
+					<li>Azure Functions</li>
+				</ul>
 			</section>
-			<section>
+			<section style="font-size: 1.2em">
 				<h2>Hello Everyone</h2>
 				<p>My name is Ilya.</p>
 				<p>I will tell about the Serverless Computing</p>
 			</section>
+			<section>
+				<section>
+					<p>
+						<span style="color: blue">Serverless computing</span>, or more simply <span
+							style="color: blue">Serverless</span>, is a hot topic in the software architecture world.
+						The “Big Three” cloud vendors — Amazon, Google, and Microsoft — are heavily invested in
+						Serverless, and we’ve seen open-source projects, conferences, and software vendors dedicated to
+						the subject.
+						But what is Serverless, and why is (or isn’t) it worth considering?
+					</p>
+				</section>
+				<section>
+					<p>
+						Like many trends in software, there’s no one clear view of what Serverless is. For starters, it
+						encompasses two different but overlapping areas:
+					</p>
+					<ol style="font-size: 0.8em">
+						<li class="fragment visible" data-fragment-index="0">Serverless was first used to describe
+							applications that significantly or fully incorporate
+							third-party, cloud-hosted applications and services, to manage server-side logic and state.
+							These types of services described as <span style="color: yellow">“(Mobile) Backend as a
+								Service"</span>, and use <span style="color: yellow">"BaaS"</span> as
+							shorthand.
+						</li>
+						<li class="fragment visible" data-fragment-index="1">Sometimes serverless computing is called
+							<span style="color: yellow">Function as a Service
+								(FaaS)</span>, because the granularity of the code that you build is a function. The
+							platform executes your function on
+							its own server and orchestrates the process between function requests and function
+							responses.
+						</li>
+					</ol>
+				</section>
+				<section>BaaS and FaaS are related in their operational attributes (example, no resource management) and
+					are frequently used together.
+					<div>
+						<img src="images/baas faas.jpg" class="BaaS-and-Faas" alt="BaaS and FaaS">
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>A couple of examples</h3>
+				</section>
+				<section>
+					<p>To get an idea for how serverless computing works, let's start with the serverless computing
+						execution model, which is illustrated in Figure.</p>
+					<div>
+						<img src="images/execution model.jpg" class="Exrcution-model"
+							alt="Serverless computing execution model">
+					</div>
+				</section>
+				<section>
+					<p>
+						Here's the serverless execution model in a nutshell:
+					</p>
+					<ol style="font-size: 0.8em">
+						<li class="fragment visible" data-fragment-index="0">
+							<p>A client makes a request to the serverless
+								computing platform to execute a specific function.</p>
+						</li>
+						<li class="fragment visible" data-fragment-index="1">The serverless computing platform first
+							checks to see if the function is running on any of its servers. If the function isn't
+							already running, then the platform loads the function from a data store</li>
+						<li class="fragment visible" data-fragment-index="2">The platform then deploys the function to
+							one of its servers, which are preconfigured with an execution environment that can run the
+							function.</li>
+						<li class="fragment visible" data-fragment-index="3">Server executes the function and captures
+							the result.</li>
+						<li class="fragment visible" data-fragment-index="4">It returns the result back to the client.
+						</li>
+					</ol>
+				</section>
+				<section>
+					<p style="font-size: 1.2em; margin-top: 0">This example demonstrates another very important point
+						about Serverless architectures. </p>
+					<div class="fragment visible" data-fragment-index="0" style="text-align: justify">In the
+						original version, <span style="color: blue">all flow, control, and security</span> <span
+							style=" color: yellow">was managed by the central server
+							application.</span></div>
+					<div class="fragment visible" data-fragment-index="1" style="text-align: justify"> In the the
+						Serverless version there is no central arbiter</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<p style="font-size: 1.3em">
+						FaaS in Amazon Web Services
+					</p>
+				</section>
+				<section>
+					<p style="font-size: 1.3em; color: yellowgreen">About AWS Lambda</p>
+					<div class="fragment visible" data-fragment-index="0">
+						<p style="text-align: justify">
+							AWS Lambda lets you run code without provisioning or managing servers. (1) ... With Lambda,
+							you can run code for virtually any type of application or backend service (2) - all with
+							zero administration. Just upload your code and Lambda takes care of everything required to
+							run (3) and scale (4) your code with high availability. You can set up your code to
+							automatically trigger from other AWS services (5) or call it directly from any web or mobile
+							app.
+						</p>
+					</div>
+				</section>
+				<section>
+					<p style="font-size: 1.3em; color: yellowgreen">What does it mean?</p>
+					<ol style="font-size: 0.7em;text-align: justify">
+						<li class="fragment visible" data-fragment-index="0">Fundamentally, FaaS is about running
+							backend code without managing your own server systems or your own long-lived server
+							applications.</li>
+						<li class="fragment visible" data-fragment-index="1">FaaS offerings do not require coding to a
+							specific framework or library. FaaS functions are regular applications when it comes to
+							language and environment. </li>
+						<li class="fragment visible" data-fragment-index="2">In a FaaS environment we upload the code
+							for our function to the FaaS provider, and the provider does everything else necessary for
+							provisioning resources, , managing processes, etc.</li>
+						<li class="fragment visible" data-fragment-index="3">Horizontal scaling is completely automatic,
+							elastic, and managed by the provider.</li>
+						<li class="fragment visible" data-fragment-index="4">Functions in FaaS are typically triggered
+							by event types defined by the provider. </li>
+					</ol>
+				</section>
+				<section>
+					<p style="font-size: 1.3em; color: yellowgreen">Execution duration</p>
+					<p style = "text-align: justify ">
+						FaaS functions are typically limited in how long each invocation is allowed to run. At present
+						the “timeout” for an AWS Lambda function to respond to an event is at most five minutes, before
+						being terminated. Microsoft Azure and Google Cloud Functions have similar limits.
+					</p> 
+					<p  style = "text-align: justify ">This means that certain classes of long-lived tasks are not suited to FaaS functions without
+						re-architecture
+					</p>
+				</section>
+			</section>
+
 		</div>
 	</div>
 
