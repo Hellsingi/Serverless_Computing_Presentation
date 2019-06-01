@@ -76,7 +76,7 @@
 				<section>BaaS and FaaS are related in their operational attributes (example, no resource management) and
 					are frequently used together.
 					<div>
-						<img src="images/baas faas.jpg" class="BaaS-and-Faas" alt="BaaS and FaaS">
+						<img src="images/baas faas.png" class="BaaS-and-Faas" alt="BaaS and FaaS">
 					</div>
 				</section>
 			</section>
@@ -163,16 +163,57 @@
 				</section>
 				<section>
 					<p style="font-size: 1.3em; color: yellowgreen">Execution duration</p>
-					<p style = "text-align: justify ">
+					<p style="text-align: justify ">
 						FaaS functions are typically limited in how long each invocation is allowed to run. At present
 						the “timeout” for an AWS Lambda function to respond to an event is at most five minutes, before
 						being terminated. Microsoft Azure and Google Cloud Functions have similar limits.
-					</p> 
-					<p  style = "text-align: justify ">This means that certain classes of long-lived tasks are not suited to FaaS functions without
+					</p>
+					<p style="text-align: justify ">This means that certain classes of long-lived tasks are not suited
+						to FaaS functions without
 						re-architecture
 					</p>
 				</section>
 			</section>
+			<section>
+				<section style="margin-top: -20px">
+					<h3 style="color: orange; font-size:1.2em">Benefits</h3>
+					<ul>
+						<li>Scalability</li>
+						<li>Pricing</li>
+						<li>Focus on Business Logic</li>
+						<li>Reduced packaging and deployment complexity</li>
+						<li>Pay per use</li>
+					</ul>
+				</section>
+				<section>
+					<h3 style="color: orange; font-size:1.2em">Drawbacks</h3>
+					<ul>
+						<li>Vendor control</li>
+						<li>Multitenancy problems</li>
+						<li>Lack of Control</li>
+						<li>Testing</li>
+					</ul>
+				</section>
+
+			</section>
+			<section>
+				<section data-fragment-index="0">
+					<h3 style="color: orange; font-size:1.2em">Conclusion</h3>
+				</section>
+				<section data-fragment-index="1">
+					<p style="text-align: justify">Serverless, despite
+						the confusing name, is a style of architecture where
+						we rely on running our
+						own server-side systems as part of our applications to a smaller extent than usual. We do this
+						through two techniques: BaaS, where we tightly integrate third-party remote application services
+						directly into the frontend of our apps, and FaaS, which moves server-side code from long-running
+						components to ephemeral function instances.</p>
+				</section>
+			</section>
+			<section>
+				<h3>THANKS FOR ATTENTION!</h3>
+			</section>
+
 
 		</div>
 	</div>
